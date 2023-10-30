@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <form name="calculadora" id="formCalculadora">
+
+        <label for="valor1">Valor 1:</label><input type="text" name="valor1" id="valor1">
+        
+        <label for="valor2">Valor 2:</label><input type="text" name="valor2" id="valor2">
+        
+        <br>
+        <label>Opções:</label><br>
+        <input type="radio" name="operacao" id="soma" value="soma">Soma<br>
+        <input type="radio" name="operacao" id="subtracao" value="subtracao">Subtração<br>
+        <input type="radio" name="operacao" id="multiplicacao" value="multiplicacao">Multiplicação<br>
+        <input type="radio" name="operacao" id="divisao" value="divisao">Divisão<br>
+        <label>Resultado:</label><br>
+        <div id="resultado"></div>
+        <input type="button" value="Calcular" onclick="calcularResultado()">
+    </form>
+    <footer>
+        <div class="dados">
+
+            <h3>DESENVOLVIDO POR</h3><br>
+
+            <p>EDUARDO AGUIAR DA SILVA</p>
+
+
+
+            <h2>CONTATO</h2>
+
+            <p>aguiar.work@gmail.com - (11) 98143-4682</p><br>
+
+
+        </div>
+
+    </footer>
+
+    <script>
+        function calcularResultado() {
+            var valor1 = parseFloat(document.getElementById('valor1').value);
+            var valor2 = parseFloat(document.getElementById('valor2').value);
+            var operacao = document.querySelector('input[name="operacao"]:checked');
+
+            if (operacao) {
+                var resultado;
+                if (operacao.value === "soma") {
+                    resultado = valor1 + valor2;
+                } else if (operacao.value === "subtracao") {
+                    resultado = valor1 - valor2;
+                } else if (operacao.value === "multiplicacao") {
+                    resultado = valor1 * valor2;
+                } else if (operacao.value === "divisao") {
+                    resultado = valor1 / valor2;
+                }
+
+                document.getElementById('resultado').innerHTML = '' + resultado;
+            }
+        }
+    </script>
+</body>
+</html>
